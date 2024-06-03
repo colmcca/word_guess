@@ -1,6 +1,11 @@
 var startButton = document.querySelector(".start-button");
 var timer = document.querySelector(".timer-count");
 var secondsLeft = 10;
+var wins = 0;
+var losses = 0;
+var guessWords = ["JavaScript", "CSS", "HTML", "Python", "React", "Java", "Node", "Express"];
+
+
 
 function startGame() {
 startTimer();
@@ -14,6 +19,8 @@ function startTimer() {
 
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
+            secondsLeft = 10;
+            timer.textContent = secondsLeft;
         }
     }, 1000);
 }
