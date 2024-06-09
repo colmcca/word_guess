@@ -12,6 +12,7 @@ var isWin = false;
 
 function init() {
     getWins();
+    getLosses();
 }
 
 
@@ -29,9 +30,20 @@ winText.textContent = wins;
 localStorage.setItem("wins-saved", wins);
 }
 
+function setLosses() {
+    losses++;
+    loseText.textContent = losses;
+    localStorage.setItem("losses-saved", losses);
+}
+
 function getWins() {
     var winsSaved = localStorage.getItem("wins-saved");
     winText.textContent = winsSaved;
+}
+
+function getLosses() {
+    var lossesSaved = localStorage.getItem("losses-saved");
+    loseText.textContent = lossesSaved;
 }
 
 function startTimer() {
