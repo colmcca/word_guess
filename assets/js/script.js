@@ -6,8 +6,9 @@ var loseText = document.querySelector(".lose");
 var secondsLeft = 10;
 var wins = 0;
 var losses = 0;
-var guessWords = ["javaScript", "cSS", "hTML", "python", "react", "java", "node", "express"];
+var guessWords = ["javaScript", "css", "html", "python", "react", "java", "node", "express"];
 var underscoreArr = [];
+var guessLetters = [];
 var isWin = false;
 
 function init() {
@@ -20,8 +21,17 @@ function init() {
 function startGame() {
    startTimer();
    startButton.disabled = true;
+randomWord();
 
+}
 
+function randomWord() {
+    var randomWord = guessWords[Math.floor(Math.random() * guessWords.length)].split("")
+    console.log(randomWord.length);
+    for (i = 0; i < randomWord.length; i++) {
+        underscoreArr.push("_");
+        wordBlanks.textContent = underscoreArr.join(" ");
+    }
 }
 
 function setWins() {
@@ -59,3 +69,5 @@ if (secondsLeft === 0) {
 }, 1000)};
 
 startButton.addEventListener("click", startGame);
+
+init();
